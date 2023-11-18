@@ -20,5 +20,12 @@
     BiRel(transfer, transferDb, "")
     Rel(transfer, exchanges, "Perform coin / money transfer")
     Rel(notification, messenger, "Using messenger's API sends a specific message")
+
+    UpdateRelStyle(mq, notification, $textColor="white", $lineColor="white", $offsetX="5")
+    UpdateRelStyle(mq, transfer, $textColor="white", $lineColor="white", $offsetX="5")
+    UpdateRelStyle(trader, transfer, $textColor="white", $lineColor="white", $offsetX="5")
+    UpdateRelStyle(transfer, transferDb, $textColor="white", $lineColor="white", $offsetX="5")
+    UpdateRelStyle(transfer, exchanges, $textColor="white", $lineColor="white", $offsetX="5")
+    UpdateRelStyle(notification, messenger, $textColor="white", $lineColor="white", $offsetX="5")
     
 ```

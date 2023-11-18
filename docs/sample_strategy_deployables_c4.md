@@ -11,4 +11,7 @@
     
     Rel(mq, strategy, "Reacts on event")
     Rel(eventProducer, mq, "Puts specific event type")
+
+    UpdateRelStyle(mq, strategy, $textColor="white", $lineColor="white", $offsetX="5")
+    UpdateRelStyle(eventProducer, mq, $textColor="white", $lineColor="white", $offsetX="5")
 ```
