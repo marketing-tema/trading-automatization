@@ -29,9 +29,10 @@ func (client *binanceClient) GetOrderBook(ctx context.Context, depth int, symbol
 		return nil, err
 	}
 	req.Header.Set("Accept", "application/json")
-	req.URL.Query().Add("symbol", symbol)
-	req.URL.Query().Add("depth", strconv.Itoa(depth))
-
+	q := req.URL.Query()
+	q.Add("symbol", symbol)
+	q.Add("depth", strconv.Itoa(depth))
+	req.URL.RawQuery = q.Encode()
 	res, err := client.httpClient.Do(req)
 
 	if err != nil {
