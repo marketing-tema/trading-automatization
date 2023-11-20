@@ -1,8 +1,18 @@
 package exchanges
 
-import "algotrading/arbitrage-strategy/event-producer/internal/domain"
+import (
+	"algotrading/arbitrage-strategy/event-producer/common"
+	"context"
+)
 
-type ExchangePoller interface {
-	
-	GetOrderBook(depth int, symbols []string) (*domain.OrderBook, error)
+// uses poll strategy to request data from exchange
+type ExchangeRestPoller interface {
+
+	// requests order book for the given symbol of size
+	GetOrderBook(ctx context.Context, depth int, symbol string) (*OrderBookResponse, error)
+}
+
+type OrderBookResponse struct {
+	Bids []common.PriceLevel
+	Asks []common.PriceLevel
 }

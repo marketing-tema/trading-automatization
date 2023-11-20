@@ -3,19 +3,15 @@ package domain
 import (
 	"fmt"
 
-	"github.com/shopspring/decimal"
+	"algotrading/arbitrage-strategy/event-producer/common"
 )
 
-type Order struct {
-	Value       decimal.Decimal
-	Quantity    decimal.Decimal
-}
-
 type OrderBook struct {
-	Asks []Order
-	Bids []Order
+	Symbol string
+	Asks   []common.PriceLevel
+	Bids   []common.PriceLevel
 }
 
 func (book OrderBook) String() string {
-	return fmt.Sprintf("asks::%v bids::%v", book.Asks, book.Bids)
+	return fmt.Sprintf("LastUpdateId::%v asks::%v bids::%v", book.Symbol, book.Asks, book.Bids)
 }
